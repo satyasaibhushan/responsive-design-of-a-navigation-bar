@@ -1,0 +1,87 @@
+@import './hamburger';
+@import './variables';
+
+@mixin flexe ($direction){
+    display: flex;
+    justify-content: centre;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+*{
+    border: 0;
+    margin: 0;
+    padding: 0em;
+    overflow: hidden;
+    
+}
+body{
+    widows: 100vh;
+    height: 100vh;
+    background : radial-gradient(rgba(97, 133, 250,1),rgb(30, 43, 97))
+}
+nav {
+    @include flexe(row);
+    justify-content: space-around;
+    background-color:$backcolor ;
+    color: $color;
+    min-height: 8vh;
+   
+    
+    ul{@include flexe(row);
+        width:30%;
+        justify-content: space-around;
+        list-style: none;
+    }   
+    li a{
+        text-decoration: none;
+        color: $color;
+        }
+}
+@media screen and (max-width:1024px){
+    nav ul{
+        width: 50%;
+        li{
+            
+        }
+    }
+ }
+ @media screen and (max-width:760px){
+     nav {
+      ul{@include flexe(column);
+         position : absolute;
+         right : 0px;
+         height: 55vh;
+         width: 40vh;
+         top: 8vh;
+         background-color: $backcolor;
+         transform: translateX(150%);
+         transition: transform 0s ease-out;
+         li{
+             opacity: 0;
+         }
+        }
+      .burger{
+          display: block;
+          cursor: pointer;
+      }  
+ 
+     }
+ }
+ .active{
+     transform: translateX(0%);
+     transition: transform 0.5s ease-out;
+ 
+ }
+ 
+ @keyframes animaton {
+     from{
+         opacity: 0;
+         transform :translateX(50px);
+ 
+     }
+     to{
+         opacity: 1;
+         transform :translateX(0px);
+     }
+    }

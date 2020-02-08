@@ -1,0 +1,27 @@
+@import './variables';
+.burger{
+    display: none;
+    width:130px;
+    
+}
+.burger div{
+    width: 25px;
+    margin: 5px;
+    height: 3px;
+    background-color: $color;
+    transition:  0.4s ease-out;
+}
+.on{
+    position:absolute;
+    right:6vh;
+    transition:  1s ease-out;
+}
+.on .line1{
+    transform: rotate(45DEG)translate(20px, -6px);
+}
+.on .line2{
+    opacity: 0;
+}
+.on .line3{
+   transform: rotate(-45deg)translate(17px, 8px);
+}
